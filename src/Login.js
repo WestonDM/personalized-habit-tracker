@@ -1,4 +1,4 @@
-export default function Login() {
+export default function Login({ onHTxtChange }) {
     return (
         <div className="login">
             <>
@@ -20,7 +20,19 @@ export default function Login() {
                         <input type="password" placeholder="Password" />
                     </div>
                     <div className="form_row">
-                        <button type="submit">Login</button>
+                        <button
+                            type="submit"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                onHTxtChange(
+                                    "Personalized Habit Tracker",
+                                    "Welcome back! Please continue tracking your habits."
+                                );
+                            }}
+                            className="btn"
+                        >
+                            Login
+                        </button>
                     </div>
                 </form>
             </>
