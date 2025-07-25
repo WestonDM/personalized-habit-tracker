@@ -1,4 +1,4 @@
-export default function Login({ onHTxtChange }) {
+export default function Login({ onHTxtChange, username }) {
     return (
         <div className="login">
             <>
@@ -24,9 +24,17 @@ export default function Login({ onHTxtChange }) {
                             type="submit"
                             onClick={(e) => {
                                 e.preventDefault();
+
+                                let userMsg = "";
+
+                                username = e.target.form.username.value;
+                                username !== ""
+                                    ? (userMsg = `Welcome back, ${username}!`)
+                                    : (userMsg = `Welcome back!`);
+
                                 onHTxtChange(
                                     "Personalized Habit Tracker",
-                                    "Welcome back! Please continue tracking your habits."
+                                    userMsg
                                 );
                             }}
                             className="btn"
